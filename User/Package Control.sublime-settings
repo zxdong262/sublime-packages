@@ -1,0 +1,17 @@
+{
+	"installed_packages":
+	[
+		"BracketHighlighter",
+		"HTML Compressor",
+		"HTML2Jade",
+		"Jade",
+		"Jade Build",
+		"JavaScript and jQuery API Completions",
+		"jQuery",
+		"JsFormat",
+		"JsMinifier",
+		"Package Control",
+		"SideBarEnhancements",
+		"Tag"
+	]
+}
