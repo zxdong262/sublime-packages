@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>fileTypes</key>
@@ -59,7 +59,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^(\s*)(script)(?=[.#(\s])(?![^\n]*ng-template)</string>
+			<string>^(\s*)(script)(?=[.#(\s])((?![^\n]*type=)|(?=[^\n]*text/javascript))</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>2</key>
@@ -277,7 +277,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^(\s*):(coffeescript)(?=\(|$)</string>
+			<string>^(\s*):(coffee(script)?)(?=\(|$)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>2</key>
@@ -677,6 +677,10 @@
 					<string>#tag_attributes</string>
 				</dict>
 				<dict>
+					<key>include</key>
+					<string>#tag_mixin_attributes</string>
+				</dict>
+				<dict>
 					<key>captures</key>
 					<dict>
 						<key>2</key>
@@ -914,6 +918,18 @@
 					<string>args.mixin.jade</string>
 					<key>patterns</key>
 					<array>
+						<dict>
+							<key>include</key>
+							<string>#tag_attribute_value_paren</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#tag_attribute_value_brackets</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#tag_attribute_value_braces</string>
+						</dict>
 						<dict>
 							<key>include</key>
 							<string>source.js</string>
@@ -1157,6 +1173,36 @@
 			<string>#[\w-]+</string>
 			<key>name</key>
 			<string>constant.id.tag.jade</string>
+		</dict>
+		<key>tag_mixin_attributes</key>
+		<dict>
+			<key>begin</key>
+			<string>(&amp;attributes\()</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.jade</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(\))</string>
+			<key>name</key>
+			<string>attibutes.tag.jade</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>attributes(?=\))</string>
+					<key>name</key>
+					<string>storage.type.keyword.jade</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>source.js</string>
+				</dict>
+			</array>
 		</dict>
 		<key>tag_name</key>
 		<dict>

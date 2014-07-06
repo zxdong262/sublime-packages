@@ -2,6 +2,7 @@
 	"installed_packages":
 	[
 		"BracketHighlighter",
+		"Emmet",
 		"HTML Compressor",
 		"HTML2Jade",
 		"Jade",
@@ -12,6 +13,8 @@
 		"JsMinifier",
 		"Package Control",
 		"SideBarEnhancements",
-		"Tag"
+		"Stylus",
+		"Tag",
+		"Theme - Flatland"
 	]
 }
